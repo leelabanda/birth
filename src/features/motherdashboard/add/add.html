@@ -1,0 +1,58 @@
+<div class="container">
+    <h2>Add Person</h2>
+    <form (ngSubmit)="savePerson()">
+        <div class="form-gorup">
+            <label>Name</label>
+            <input type="text" [(ngModel)]="person.Name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label>Relation</label>
+            <select [(ngModel)]="person.Relation" name="relation" required>
+                <option value="">Select</option>
+                <option value="F-Friend">F-Friend</option>
+                <option value="M-Friend">M-Friend</option>
+                <option value="Relation">Relation</option>
+            </select>
+        </div>
+             <div class="form-gorup">
+            <label>SubRelation</label>
+            <input type="text" [(ngModel)]="person.SubRelation" name="subrelation" required>
+        </div>
+        <div class="form-group">
+            <label>Date of Birth</label>
+
+            <input
+                type="date"
+                [(ngModel)]="person.DOB"
+                name="dob">
+        </div>
+        <div class="form-group">
+            <label>Anniversary</label>
+
+            <input
+                type="date"
+                [(ngModel)]="person.Anniversary"
+                name="anniversary">
+        </div>
+                <div class="form-group">
+            <label>City</label>
+
+            <input
+                type="text"
+                [(ngModel)]="person.City"
+                name="city">
+        </div>
+        <div class="form-group">
+            <label>Country</label>
+
+            <input
+                type="text"
+                [(ngModel)]="person.Location"
+                name="location">
+        </div>
+
+        <button type="submit">
+            Save
+        </button>
+    </form>
+</div>

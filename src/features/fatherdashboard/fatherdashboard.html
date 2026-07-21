@@ -1,0 +1,50 @@
+<div class="event-card">
+
+    <h2>🎂 Upcoming Birthdays</h2>
+
+    <div *ngIf="upCommingBirthdays.length > 0; else noBirthdays">
+
+        <div class="event-item" *ngFor="let p of upCommingBirthdays">
+
+            <div class="date">
+                {{ p.DOB | date:'dd MMM' }}
+            </div>
+
+            <div class="details">
+                <strong>{{ p.Name }}</strong>
+                --{{ p.SubRelation }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <ng-template #noBirthdays>
+        <p class="no-event">🎉 No upcoming birthdays.</p>
+    </ng-template>
+
+    <hr>
+
+    <h2>💍 Upcoming Anniversaries</h2>
+
+    <div *ngIf="upCommingAnniversaries.length > 0; else noAnniversaries">
+
+        <div class="event-item" *ngFor="let p of upCommingAnniversaries">
+
+            <div class="date">
+                {{ p.Anniversary | date:'dd MMM' }}
+            </div>
+
+            <div class="details">
+                <strong>{{ p.Name }}</strong>-- {{ p.SubRelation }}
+            </div>
+
+        </div>
+
+    </div>
+
+    <ng-template #noAnniversaries>
+        <p class="no-event">💐 No upcoming anniversaries.</p>
+    </ng-template>
+
+</div>

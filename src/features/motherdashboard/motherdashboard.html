@@ -1,0 +1,29 @@
+<div class="event-card">
+    <h2>Upcomming Birthdays</h2>
+    <div class="event-item" *ngFor="let p of upCommingBirthdays">
+        <div class="date">
+            {{p.DOB|date:'dd MMM'}}
+        </div>
+        <div class="details">
+            <strong>{{p.Name}}</strong>--{{p.SubRelation}}
+            
+        </div>
+    </div> <hr>
+
+    <h2>💍 Upcoming Anniversaries</h2>
+
+    <div class="event-item" *ngFor="let p of upCommingAnniversaries">
+
+        <div class="date">
+            {{p.Anniversary | date:'dd MMM'}}
+        </div>
+
+        <div class="details">
+            <strong>{{p.Name}}</strong>
+
+            --{{p.SubRelation}}
+        </div>
+
+    </div>
+
+</div>

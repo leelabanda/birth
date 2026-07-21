@@ -1,0 +1,34 @@
+<div class="container">
+
+    <div class="toolbar">
+
+        <input
+            #fileInput
+            type="file"
+            accept=".xlsx,.xls"
+            (change)="onFileChange($event)"
+            hidden>
+
+        <button type="button" (click)="fileInput.click()">
+            📂 Import Excel
+        </button>
+
+        <span *ngIf="selectedFileName">
+            {{ selectedFileName }}
+        </span>
+
+        <button (click)="clearData()">
+            🗑️ Clear Local Storage
+        </button>
+
+        <button (click)="exportExcel()">
+            📤 Export Excel
+        </button>
+
+        <button (click)="downloadTemplate()">
+            📄 Download Template
+        </button>
+
+    </div>
+
+</div>

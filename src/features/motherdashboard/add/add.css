@@ -1,0 +1,95 @@
+/* Page */
+.container {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.container h2 {
+  text-align: center;
+  color: #1976d2;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+/* Form Groups */
+.form-group,
+.form-gorup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+/* Labels */
+label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+/* Inputs & Select */
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+/* Focus Effect */
+input:focus,
+select:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 5px rgba(25, 118, 210, 0.3);
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover */
+button:hover {
+  background: #1565c0;
+}
+
+/* Active */
+button:active {
+  transform: scale(0.98);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .container {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  .container h2 {
+    font-size: 24px;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 14px;
+  }
+}

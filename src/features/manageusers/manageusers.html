@@ -1,0 +1,50 @@
+<div class="container">
+      <div class="search-box">
+      <input
+        type="text"
+        placeholder="🔍 Search by name..."
+        [(ngModel)]="searchText"
+        (input)="searchUser()">
+    </div>
+  <h2>Manage Users</h2>
+
+  <table class="user-table">
+
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Relation</th>
+        <th>DOB</th>
+        <th>Anniversary</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr *ngFor="let person of motherPeople; let i = index">
+
+        <td>{{ i + 1 }}</td>
+        <td>{{ person.Name }}</td>
+        <td>{{ person.Relation }}</td>
+        <td>{{ person.DOB }}</td>
+        <td>{{ person.Anniversary || '-' }}</td>
+        <td>{{ person.City }}</td>
+        <td>{{ person.Location }}</td>
+
+        <td>
+            <button class="edit-btn"(click)="editUser(person)">Edit</button>
+          <button class="delete-btn" (click)="deleteUser(person)">Delete
+          </button>
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>

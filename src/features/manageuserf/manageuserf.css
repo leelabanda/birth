@@ -1,0 +1,123 @@
+/* Container */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+/* Heading */
+.container h2 {
+    margin-bottom: 20px;
+    color: #1f2937;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Table */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+/* Header */
+.user-table thead {
+    background: #2f80ed;
+    color: #fff;
+}
+
+.user-table th {
+    padding: 14px;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Table Body */
+.user-table td {
+    padding: 14px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 15px;
+}
+
+.user-table tbody tr:nth-child(even) {
+    background: #f8fafc;
+}
+
+.user-table tbody tr:hover {
+    background: #eef5ff;
+    transition: 0.3s;
+}
+
+/* Buttons */
+.edit-btn,
+.delete-btn {
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+    margin-right: 8px;
+}
+
+.edit-btn {
+    background: #28a745;
+}
+
+.edit-btn:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.delete-btn {
+    background: #dc3545;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .container {
+        padding: 10px;
+    }
+
+    .user-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .container h2 {
+        font-size: 22px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+}
+.search-box input {
+  width: 280px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 5px rgba(59, 130, 246, 0.4);
+}

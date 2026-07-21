@@ -1,0 +1,47 @@
+<div class="container">
+
+  <h3 class="today-date">
+    📅 {{ todayDate | date:'EEEE, dd MMMM yyyy' }}
+  </h3>
+
+  <h2>🎂 Today's Birthdays</h2>
+
+  <div *ngIf="birthdayToday.length === 0" class="empty-message">
+    No birthdays today.
+  </div>
+
+  <div class="card-container">
+    <div class="card birthday-card" *ngFor="let p of birthdayToday">
+
+      <div class="icon">🎂</div>
+
+      <h3>{{ p.Name }}</h3>
+
+      <p><strong>Relation:</strong> {{ p.Relation }}</p>
+
+      <p><strong>Sub Relation:</strong> {{ p.SubRelation }}</p>
+
+    </div>
+  </div>
+
+  <h2>💍 Today's Anniversaries</h2>
+
+  <div *ngIf="anniversaryToday.length === 0" class="empty-message">
+    No anniversaries today.
+  </div>
+
+  <div class="card-container">
+    <div class="card anniversary-card" *ngFor="let p of anniversaryToday">
+
+      <div class="icon">💍</div>
+
+      <h3>{{ p.Name }}</h3>
+
+      <p><strong>Relation:</strong> {{ p.Relation }}</p>
+
+      <p><strong>Sub Relation:</strong> {{ p.SubRelation }}</p>
+
+    </div>
+  </div>
+
+</div>

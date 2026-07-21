@@ -1,0 +1,49 @@
+.container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.today-date {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2563eb;
+}
+
+/* Box for each section */
+.section-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.section-box h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.event {
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.event:last-child {
+    border-bottom: none;
+}
+
+.event strong {
+    font-size: 17px;
+    color: #222;
+}
+
+.empty-message {
+    text-align: center;
+    color: gray;
+    font-style: italic;
+    padding: 15px;
+}

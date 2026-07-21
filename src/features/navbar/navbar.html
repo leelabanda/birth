@@ -1,0 +1,112 @@
+<div class="layout">
+
+  <!-- Header -->
+  <header class="header">
+
+    <div class="left-header">
+      <button class="menu-btn" (click)="toggleSidebar()">
+        ☰
+      </button>
+
+      <h2>DOB Tracker</h2>
+    </div>
+
+    <button class="logout-btn" (click)="logout()">
+      Logout
+    </button>
+
+  </header>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" [class.closed]="!sidebarOpen">
+
+    <a routerLink="/father/events" routerLinkActive="active">
+  <span class="icon">🎂</span>
+  <span class="text">Today's F-Events</span>
+</a>
+
+<a routerLink="/mother/events" routerLinkActive="active">
+  <span class="icon">🎉</span>
+  <span class="text">Today's M-Events</span>
+</a>
+
+    <!-- Father -->
+    <div class="menu-item">
+
+      <div class="menu-title" (click)="toggleFatherMenu()">
+        <span>👨 Father Dashboard</span>
+        <span>{{ fatherOpen ? '▼' : '►' }}</span>
+      </div>
+
+      <div class="submenu" *ngIf="fatherOpen">
+
+        <a routerLink="/father/dashboard" routerLinkActive="active">
+         📝 Dashboard
+        </a>
+
+        <a routerLink="/father/add" routerLinkActive="active">
+        👥 Add Person
+        </a>
+
+        <a routerLink="/father/calendar" routerLinkActive="active">
+         📆 Calendar
+        </a>
+        <a routerLink="/father/users" routerLinkActive="active">
+      👥 Manage Users
+    </a>
+      </div>
+
+    </div>
+
+    <!-- Mother -->
+    <div class="menu-item">
+
+      <div class="menu-title" (click)="toggleMotherMenu()">
+        <span>👩 Mother Dashboard</span>
+        <span>{{ motherOpen ? '▼' : '►' }}</span>
+      </div>
+
+      <div class="submenu" *ngIf="motherOpen">
+
+        <a routerLink="/mother/dashboard" routerLinkActive="active">
+         📝 Dashboard
+        </a>
+
+        <a routerLink="/mother/add" routerLinkActive="active">
+         👥 Add Person
+        </a>
+
+        <a routerLink="/mother/calendar" routerLinkActive="active">
+         📆 Calendar
+        </a>
+         <a routerLink="/mother/users" routerLinkActive="active">
+      👥 Manage Users
+    </a>
+      </div>
+
+    </div>
+
+    
+
+    <a routerLink="/status" routerLinkActive="active">
+      📊 Status
+    </a>
+
+    <a routerLink="/import" routerLinkActive="active">
+      📂 Import Excel
+    </a>
+
+    <a routerLink="/profile" routerLinkActive="active">
+      👤 Profile
+    </a>
+
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content" [class.full]="!sidebarOpen">
+
+    <router-outlet></router-outlet>
+
+  </main>
+
+</div>

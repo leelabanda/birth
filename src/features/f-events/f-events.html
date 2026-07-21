@@ -1,0 +1,35 @@
+<div class="container">
+
+    <h3 class="today-date">
+        📅 {{ todayDate | date:'EEEE, dd MMMM yyyy' }}
+    </h3>
+
+    <!-- Birthday Box -->
+    <div class="section-box">
+        <h2>🎂 Today's Birthdays</h2>
+
+        <div *ngIf="birthdayToday.length === 0" class="empty-message">
+            No birthdays today.
+        </div>
+
+        <div class="event" *ngFor="let p of birthdayToday">
+            <strong>{{ p.Name }}</strong><br>
+            {{ p.Relation }} | {{ p.SubRelation }}
+        </div>
+    </div>
+
+    <!-- Anniversary Box -->
+    <div class="section-box">
+        <h2>💍 Today's Anniversaries</h2>
+
+        <div *ngIf="anniversaryToday.length === 0" class="empty-message">
+            No anniversaries today.
+        </div>
+
+        <div class="event" *ngFor="let p of anniversaryToday">
+            <strong>{{ p.Name }}</strong><br>
+            {{ p.Relation }} | {{ p.SubRelation }}
+        </div>
+    </div>
+
+</div>

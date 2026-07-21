@@ -1,0 +1,21 @@
+<h2>Edit User</h2>
+<div class="form">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="person.Name">
+    <label>DOB</label>
+    <input type="date" [(ngModel)]="person.DOB">
+    <label>Anniversary</label>
+    <input type="date" [(ngModel)]="person.Anniversary">
+    <label>Relation</label>
+            <select [(ngModel)]="person.Relation" name="relation" required>
+                <option value="">Select</option>
+                <option value="M-Friend">M-Friend</option>
+                <option value="Relation">Relation</option>
+            </select>
+    <label>Sub-Relation</label>
+    <input type="text" [(ngModel)]="person.SubRelation">
+    <label>City</label>
+    <input type="text" [(ngModel)]="person.City">
+    <label>Country</label>
+    <input type="text" [(ngModel)]="person.Location">
+</div>
