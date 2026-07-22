@@ -16,7 +16,8 @@ export class Add {
     Relation:'',
     SubRelation:'',
     City:'',
-    Location:''
+    Location:'',
+    MobileNumber:''
   };
   savePerson(){
     const people:Person[]=JSON.parse(localStorage.getItem('people')||'[]');
@@ -29,7 +30,8 @@ export class Add {
   Relation: this.person.Relation,
   SubRelation: this.person.SubRelation,
   City: this.person.City,
-  Location: this.person.Location
+  Location: this.person.Location,
+  MobileNumber:this.person.MobileNumber
 };
     people.push(newPerson);
     localStorage.setItem('people',JSON.stringify(people));
@@ -41,7 +43,8 @@ export class Add {
       Relation:'',
       SubRelation:'',
       City:'',
-      Location:''
+      Location:'',
+      MobileNumber:''
     };
   }
    formatDate(date: string): string {
