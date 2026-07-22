@@ -237,24 +237,30 @@ body{
     }
 
     /* Sidebar */
-    .sidebar {
-        width: 250px;
-        left: -250px;
-        z-index: 1100;
-    }
+ @media (max-width: 768px) {
 
-    .sidebar.open {
-        left: 0;
-    }
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 60px);
+    transition: left .3s ease;
+    z-index: 1000;
+  }
 
-    /* Content */
-    .content {
-        left: 0;
-        width: 100%;
-        padding: 15px;
+  .sidebar.closed {
+    left: -250px;
+  }
+
+  .content {
+    left: 0;
+    width: 100%;
+    padding: 15px;
         box-sizing: border-box;
-    }
 
+  }
+}
     .content.full {
         left: 0;
         width: 100%;
