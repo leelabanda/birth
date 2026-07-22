@@ -63,8 +63,30 @@ h2 {
 }
 
 @media (max-width: 600px) {
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin: 20px 0;
+    }
+
     .form {
-        width: 90%;
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
         padding: 20px;
+        border-radius: 0;
+        box-sizing: border-box;
+        box-shadow: none;
+    }
+
+    .form input,
+    .form select,
+    .form button {
+        font-size: 14px;
     }
 }

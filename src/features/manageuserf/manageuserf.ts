@@ -40,6 +40,7 @@ export class ManageuserF {
     localStorage.setItem('people', JSON.stringify(this.people));
     this.loadUsers();
   }
+  alert("Do You want to");
 }
      editUser(person:Person) {
     const index=this.people.findIndex(p=>p.Name===person.Name && p.DOB===person.DOB && p.Relation===person.Relation);

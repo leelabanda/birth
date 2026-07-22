@@ -1,22 +1,42 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
 /* Header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 15px;
+  margin-bottom: 20px;
 }
 
 .header button {
-  padding: 8px 12px;
+  padding: 10px 16px;
   border: none;
   border-radius: 6px;
   background: #1976d2;
   color: white;
   cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.header button:hover {
+  background: #125ea8;
 }
 
 .header h2 {
-  font-size: 22px;
+  font-size: 24px;
   margin: 0;
 }
 
@@ -27,6 +47,7 @@
   text-align: center;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #444;
 }
 
 /* Calendar */
@@ -36,6 +57,7 @@
   gap: 10px;
 }
 
+/* Day Card */
 .day {
   min-height: 120px;
   border: 1px solid #ddd;
@@ -45,11 +67,24 @@
   overflow-y: auto;
 }
 
+/* Empty Cells */
+.empty {
+  background: #f5f5f5;
+  border: none;
+}
+
+/* Date */
 .date {
   font-size: 18px;
   font-weight: bold;
 }
 
+/* Today */
+.today {
+  border: 3px solid #16a34a;
+}
+
+/* Event Colors */
 .birthday {
   background: #dbeafe;
 }
@@ -62,10 +97,7 @@
   background: #e9d5ff;
 }
 
-.today {
-  border: 3px solid #16a34a;
-}
-
+/* Event Text */
 .birthday-text {
   color: #2563eb;
   font-size: 12px;
@@ -78,41 +110,65 @@
   margin-top: 5px;
 }
 
-/* =======================
-   Tablet View
-======================= */
+/* ==========================
+   Tablet
+========================== */
 @media (max-width: 992px) {
 
-  .calendar {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .weekdays {
-    grid-template-columns: repeat(4, 1fr);
+  .container {
+    padding: 15px;
   }
 
   .header h2 {
-    font-size: 18px;
+    font-size: 20px;
+  }
+
+  .day {
+    min-height: 100px;
   }
 }
 
-/* =======================
-   Mobile View
-======================= */
+/* ==========================
+   Mobile
+========================== */
 @media (max-width: 768px) {
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .header h2 {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .header button {
+    width: 100%;
+  }
+
+  .weekdays {
+    display: none;
+  }
 
   .calendar {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
   }
 
-  .weekdays {
-    display: none; /* Hide weekday row */
-  }
-
   .day {
-    min-height: 130px;
-    padding: 6px;
+    min-height: 120px;
+    padding: 8px;
   }
 
   .date {
@@ -123,21 +179,20 @@
   .anniversary-text {
     font-size: 11px;
   }
-
-  .header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .header h2 {
-    font-size: 18px;
-  }
 }
 
-/* =======================
+/* ==========================
    Small Mobile
-======================= */
+========================== */
 @media (max-width: 480px) {
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 12px;
+  }
 
   .calendar {
     grid-template-columns: 1fr;
@@ -147,16 +202,22 @@
     min-height: 100px;
   }
 
-  .header button {
-    width: 100%;
+  .header h2 {
+    font-size: 18px;
   }
 
-  .header h2 {
-    font-size: 16px;
-    text-align: center;
+  .header button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
   }
-}
-.empty {
-  background: #f5f5f5;
-  border: none;
+
+  .date {
+    font-size: 15px;
+  }
+
+  .birthday-text,
+  .anniversary-text {
+    font-size: 10px;
+  }
 }

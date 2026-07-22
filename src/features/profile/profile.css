@@ -1,11 +1,17 @@
+/* Profile Container */
 .profile-container {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* Profile Card */
 .profile-card {
-    width: 350px;
+    width: 100%;
+    max-width: 350px;
     background: white;
     padding: 30px;
     border-radius: 12px;
@@ -13,12 +19,68 @@
     text-align: center;
 }
 
+/* Profile Image */
 .profile-image {
     font-size: 80px;
     margin-bottom: 15px;
 }
 
+/* Details */
 .details p {
     font-size: 18px;
     margin: 15px 0;
+}
+
+/* ==========================
+   Mobile View
+========================== */
+@media (max-width: 768px) {
+
+    .profile-container {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+        justify-content: flex-start;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .profile-card {
+        width: 100%;
+        max-width: 100%;
+        padding: 25px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .profile-image {
+        font-size: 70px;
+    }
+
+    .details p {
+        font-size: 16px;
+    }
+}
+
+/* ==========================
+   Small Mobile
+========================== */
+@media (max-width: 480px) {
+
+    .profile-container {
+        padding: 15px;
+    }
+
+    .profile-card {
+        padding: 20px;
+    }
+
+    .profile-image {
+        font-size: 60px;
+    }
+
+    .details p {
+        font-size: 15px;
+    }
 }

@@ -85,26 +85,86 @@
 }
 
 /* Responsive */
+/* Mobile */
 @media (max-width: 768px) {
 
     .container {
-        padding: 10px;
+        width: 100%;
+        max-width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 15px;
+        border-radius: 0;
+        box-sizing: border-box;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .header h2 {
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .search-box input {
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .user-table {
         display: block;
+        width: 100%;
         overflow-x: auto;
         white-space: nowrap;
     }
 
-    .container h2 {
-        font-size: 22px;
+    .user-table th,
+    .user-table td {
+        padding: 10px;
+        font-size: 14px;
     }
 
     .edit-btn,
     .delete-btn {
-        padding: 6px 14px;
+        padding: 6px 12px;
         font-size: 13px;
+        margin-bottom: 5px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 12px;
+        border-radius: 0;
+    }
+
+    .header h2 {
+        font-size: 20px;
+    }
+
+    .search-box input {
+        font-size: 14px;
+    }
+
+    .user-table th,
+    .user-table td {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .edit-btn,
+    .delete-btn {
+        width: 100%;
+        margin: 4px 0;
     }
 }
 .header {
