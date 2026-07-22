@@ -96,18 +96,24 @@ button:hover {
     background: #f2f2f2;
     transform: translateY(-2px);
 }
+/* Add this globally to prevent root-level overflow */
+body {
+    overflow-x: hidden;
+}
 
 /* Mobile */
 @media (max-width: 768px) {
     .login-container {
-        padding: 15px;
+        width: 100%;
+        padding: 10px; /* Reduces outer padding slightly on smaller screens */
     }
 
     .login-card {
         width: 100%;
         max-width: 100%;
-        padding: 30px 20px;
+        padding: 25px 15px; /* Adjusts internal card padding */
         border-radius: 12px;
+        box-sizing: border-box; /* Ensures padding stays contained */
     }
 
     .login-card h1 {

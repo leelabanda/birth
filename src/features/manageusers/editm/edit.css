@@ -68,13 +68,14 @@ h2 {
     body {
         margin: 0;
         padding: 0;
+        overflow-x: hidden; /* Prevents side-to-side scrolling/white gaps */
     }
 
     .form {
         width: 100%;
         max-width: 100%;
         min-height: 100vh;
-        margin: 0;
+        margin: 0 auto; /* Ensures perfect centering with no side offset */
         padding: 20px;
         border-radius: 0;
         box-sizing: border-box;
@@ -94,6 +95,7 @@ h2 {
     .form select,
     .form button {
         font-size: 14px;
+        box-sizing: border-box;
     }
 
     .form button {

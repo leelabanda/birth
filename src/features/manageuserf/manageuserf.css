@@ -92,7 +92,7 @@
         width: 100%;
         max-width: 100%;
         min-height: 100vh;
-        margin: 0;
+        margin: 0 auto; /* Ensures precise centering with no side offset */
         padding: 15px;
         border-radius: 0;
         box-sizing: border-box;
@@ -140,9 +140,10 @@
         width: 100%;
         max-width: 100%;
         min-height: 100vh;
-        margin: 0;
+        margin: 0 auto; /* Keeps small mobile views centered securely */
         padding: 12px;
         border-radius: 0;
+        box-sizing: border-box;
     }
 
     .container h2 {
@@ -151,6 +152,7 @@
 
     .search-box input {
         font-size: 14px;
+        box-sizing: border-box;
     }
 
     .user-table th,
@@ -163,8 +165,10 @@
     .delete-btn {
         width: 100%;
         margin: 4px 0;
+        box-sizing: border-box;
     }
 }
+
 .search-box input {
   width: 280px;
   padding: 10px 15px;

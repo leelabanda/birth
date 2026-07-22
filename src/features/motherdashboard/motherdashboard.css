@@ -1,4 +1,40 @@
-/* Mobile View */
+.event-card{
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    background: #fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
+.event-item{
+    display:flex;
+    align-items:center;
+    padding:12px;
+    margin:10px 0;
+    border-left:4px solid #4CAF50;
+    background:#f8f8f8;
+    border-radius:8px;
+}
+
+.date{
+    width:70px;
+    font-weight:bold;
+    color:#1976d2;
+}
+
+.details{
+    flex:1;
+}
+
+h2{
+    color:#444;
+}
+
+hr{
+    margin:20px 0;
+}
 /* Mobile View */
 @media screen and (max-width: 768px) {
 
@@ -6,10 +42,11 @@
         width: 100%;
         max-width: 100%;
         min-height: 100vh;
-        margin: 0;
+        margin: 0 auto; /* Ensures precise centering with no side offset */
         padding: 20px;
         border-radius: 0;
         box-sizing: border-box;
+        box-shadow: none;
     }
 
     .event-item {
@@ -17,6 +54,7 @@
         align-items: flex-start;
         gap: 8px;
         padding: 12px;
+        box-sizing: border-box;
     }
 
     .date {
@@ -42,38 +80,15 @@
         width: 100%;
         max-width: 100%;
         min-height: 100vh;
-        margin: 0;
+        margin: 0 auto; /* Keeps small mobile views safely centered */
         padding: 16px;
         border-radius: 0;
+        box-sizing: border-box;
     }
 
     .event-item {
         padding: 10px;
-    }
-
-    .date {
-        font-size: 14px;
-    }
-
-    .details {
-        font-size: 14px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-}
-/* Small Mobile */
-@media screen and (max-width: 480px) {
-
-    .event-card {
-        width: 100%;
-        padding: 12px;
-        border-radius: 8px;
-    }
-
-    .event-item {
-        padding: 8px;
+        box-sizing: border-box;
     }
 
     .date {

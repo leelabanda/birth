@@ -77,10 +77,13 @@ button:active {
 }
 
 /* Mobile */
+/* Mobile */
 @media (max-width: 600px) {
   .container {
-    margin: 15px;
+    width: 100%;
+    margin: 15px 0; /* Removes left/right margins, keeping only top/bottom */
     padding: 20px;
+    box-sizing: border-box; /* Ensures padding doesn't overflow */
   }
 
   .container h2 {

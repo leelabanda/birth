@@ -50,16 +50,18 @@
     .status-grid {
         width: 100%;
         min-height: 100vh;
-        margin: 0;
+        margin: 0 auto; /* Ensures precise centering with no side offset */
         padding: 15px;
         grid-template-columns: 1fr;
         box-sizing: border-box;
+        overflow-x: hidden;
     }
 
     .card {
         width: 100%;
         padding: 20px;
         border-radius: 10px;
+        box-sizing: border-box;
     }
 
     .card h1 {
@@ -78,10 +80,12 @@
 
     .status-grid {
         padding: 12px;
+        box-sizing: border-box;
     }
 
     .card {
         padding: 16px;
+        box-sizing: border-box;
     }
 
     .card h1 {

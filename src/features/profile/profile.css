@@ -39,19 +39,23 @@
     .profile-container {
         width: 100%;
         min-height: 100vh;
-        margin: 0;
+        margin: 0 auto; /* Ensures precise centering with no side offset */
         padding: 20px;
+        display: flex;
         justify-content: flex-start;
         align-items: center;
         box-sizing: border-box;
+        overflow-x: hidden;
     }
 
     .profile-card {
         width: 100%;
         max-width: 100%;
+        margin: 0 auto; /* Protects card positioning */
         padding: 25px;
         border-radius: 0;
         box-shadow: none;
+        box-sizing: border-box;
     }
 
     .profile-image {
@@ -70,10 +74,12 @@
 
     .profile-container {
         padding: 15px;
+        box-sizing: border-box;
     }
 
     .profile-card {
         padding: 20px;
+        box-sizing: border-box;
     }
 
     .profile-image {

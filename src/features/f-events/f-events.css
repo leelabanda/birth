@@ -1,7 +1,7 @@
 .container {
     max-width: 700px;
     margin: 30px auto;
-    padding: 20px;
+    /* padding: 20px; */
     font-family: Arial, sans-serif;
 }
 
@@ -46,4 +46,24 @@
     color: gray;
     font-style: italic;
     padding: 15px;
+}
+/* Mobile View */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 15px 0; /* Removes auto-margin side effects */
+        padding: 0 15px; /* Adds safe breathing room on both sides */
+        box-sizing: border-box;
+    }
+
+    .section-box {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .today-date {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
 }

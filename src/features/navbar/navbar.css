@@ -219,3 +219,43 @@ body{
 .sidebar.closed .menu-title span:last-child {
     display: none;
 }
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+
+    /* Collapse or shift sidebar out of the way initially on mobile */
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+    }
+
+    .sidebar.open {
+        width: 250px; /* Opens fully when toggled on mobile */
+    }
+
+    /* Content expands to fill 100% width when sidebar is hidden */
+    .content {
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .content.full {
+        left: 0;
+        width: 100%;
+    }
+
+    /* Adjust header elements for smaller screens */
+    .header {
+        padding: 0 15px;
+    }
+
+    .menu-btn {
+        font-size: 24px;
+    }
+
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}

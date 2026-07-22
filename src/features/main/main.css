@@ -67,27 +67,31 @@ span {
   border: 1px solid #ddd;
 }
 /* Mobile View */
+/* Mobile View */
 @media (max-width: 768px) {
 
   .container {
     width: 100%;
     max-width: 100%;
     min-height: 100vh;
-    margin: 0;
+    margin: 0 auto; /* Ensures clean centering with no side offset */
     padding: 15px;
     box-sizing: border-box;
   }
 
   .toolbar {
+    display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
+    width: 100%; /* Forces the toolbar to fully respect container bounds */
   }
 
   button {
     width: 100%;
     padding: 12px;
     font-size: 14px;
+    box-sizing: border-box;
   }
 
   span {
@@ -97,7 +101,6 @@ span {
     font-size: 14px;
   }
 }
-
 /* Small Mobile */
 @media (max-width: 480px) {
 

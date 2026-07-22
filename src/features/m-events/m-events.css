@@ -73,8 +73,7 @@ h2 {
     .container {
         width: 100%;
         max-width: 100%;
-        min-height: 100vh;
-        margin: 0;
+        margin: 0 auto; /* Ensures proper centering with zero side offset */
         padding: 15px;
         box-sizing: border-box;
     }
@@ -93,10 +92,11 @@ h2 {
         display: flex;
         flex-direction: column;
         gap: 15px;
+        width: 100%; /* Ensures flex parent fills container cleanly */
     }
 
     .card {
-        width: 100%;
+        width: 100%; /* Forces cards to expand fully inside the stack */
         box-sizing: border-box;
     }
 
@@ -116,7 +116,6 @@ h2 {
         font-size: 14px;
     }
 }
-
 /* Small Mobile */
 @media (max-width: 480px) {
 
