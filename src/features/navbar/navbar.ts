@@ -1,28 +1,56 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterModule,CommonModule],
+  standalone: true,
+  imports: [RouterModule, CommonModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
-export class Navbar {
-constructor(private router:Router){}
-sidebarOpen = true;
+export class Navbar implements OnInit {
 
-motherOpen = false;
-fatherOpen = false;
-//sidebarOpen = true;
+  constructor(private router: Router) {}
 
-toggleSidebar() {
-  this.sidebarOpen = !this.sidebarOpen;
-}
-toggleMotherMenu() {
-  this.motherOpen = !this.motherOpen;
-}
-  // Close menus when clicking anywhere outside
+  sidebarOpen = true;
+  fatherOpen = false;
+  motherOpen = false;
+
+  ngOnInit(): void {
+    // Desktop -> open
+    // Mobile -> closed
+    this.sidebarOpen = window.innerWidth > 768;
+  }
+
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
+  }
+
+  closeSidebarOnMobile() {
+    if (window.innerWidth <= 768) {
+      this.sidebarOpen = false;
+    }
+  }
+
+  toggleFatherMenu() {
+    this.fatherOpen = !this.fatherOpen;
+  }
+
+  toggleMotherMenu() {
+    this.motherOpen = !this.motherOpen;
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    if (window.innerWidth > 768) {
+      this.sidebarOpen = true;
+    } else {
+      this.sidebarOpen = false;
+    }
+  }
+
+  // Close Father/Mother submenu when clicking outside
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
     const target = event.target as HTMLElement;
@@ -33,16 +61,9 @@ toggleMotherMenu() {
     }
   }
 
-toggleFatherMenu() {
-  this.fatherOpen = !this.fatherOpen;
+  logout() {
+    localStorage.removeItem('loggedIn');
+    localStorage.removeItem('username');
+    this.router.navigate(['/login']);
+  }
 }
-logout(){
-  localStorage.removeItem('loggedIn');
-  localStorage.removeItem('username');
-this.router.navigate(['/login']);
-
-}
-
-
-}
-

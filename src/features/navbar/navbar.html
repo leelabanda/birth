@@ -2,7 +2,6 @@
 
   <!-- Header -->
   <header class="header">
-
     <div class="left-header">
       <button class="menu-btn" (click)="toggleSidebar()">
         ☰
@@ -14,21 +13,33 @@
     <button class="logout-btn" (click)="logout()">
       Logout
     </button>
-
   </header>
+
+  <!-- Overlay -->
+  <div
+    class="overlay"
+    *ngIf="sidebarOpen"
+    (click)="closeSidebarOnMobile()">
+  </div>
 
   <!-- Sidebar -->
   <aside class="sidebar" [class.closed]="!sidebarOpen">
 
-    <a routerLink="/father/events" routerLinkActive="active">
-  <span class="icon">🎂</span>
-  <span class="text">Today's F-Events</span>
-</a>
+    <a
+      routerLink="/father/events"
+      routerLinkActive="active"
+      (click)="closeSidebarOnMobile()">
+      <span class="icon">🎂</span>
+      <span class="text">Today's F-Events</span>
+    </a>
 
-<a routerLink="/mother/events" routerLinkActive="active">
-  <span class="icon">🎉</span>
-  <span class="text">Today's M-Events</span>
-</a>
+    <a
+      routerLink="/mother/events"
+      routerLinkActive="active"
+      (click)="closeSidebarOnMobile()">
+      <span class="icon">🎉</span>
+      <span class="text">Today's M-Events</span>
+    </a>
 
     <!-- Father -->
     <div class="menu-item">
@@ -40,20 +51,34 @@
 
       <div class="submenu" *ngIf="fatherOpen">
 
-        <a routerLink="/father/dashboard" routerLinkActive="active">
-         📝 Dashboard
+        <a
+          routerLink="/father/dashboard"
+          routerLinkActive="active"
+          (click)="closeSidebarOnMobile()">
+          📝 Dashboard
         </a>
 
-        <a routerLink="/father/add" routerLinkActive="active">
-        👥 Add Person
+        <a
+          routerLink="/father/add"
+          routerLinkActive="active"
+          (click)="closeSidebarOnMobile()">
+          👥 Add Person
         </a>
 
-        <a routerLink="/father/calendar" routerLinkActive="active">
-         📆 Calendar
+        <a
+          routerLink="/father/calendar"
+          routerLinkActive="active"
+          (click)="closeSidebarOnMobile()">
+          📆 Calendar
         </a>
-        <a routerLink="/father/users" routerLinkActive="active">
-      👥 Manage Users
-    </a>
+
+        <a
+          routerLink="/father/users"
+          routerLinkActive="active"
+          (click)="closeSidebarOnMobile()">
+          👥 Manage Users
+        </a>
+
       </div>
 
     </div>
@@ -68,42 +93,66 @@
 
       <div class="submenu" *ngIf="motherOpen">
 
-        <a routerLink="/mother/dashboard" routerLinkActive="active">
-         📝 Dashboard
+        <a
+          routerLink="/mother/dashboard"
+          routerLinkActive="active"
+          (click)="closeSidebarOnMobile()">
+          📝 Dashboard
         </a>
 
-        <a routerLink="/mother/add" routerLinkActive="active">
-         👥 Add Person
+        <a
+          routerLink="/mother/add"
+          routerLinkActive="active"
+          (click)="closeSidebarOnMobile()">
+          👥 Add Person
         </a>
 
-        <a routerLink="/mother/calendar" routerLinkActive="active">
-         📆 Calendar
+        <a
+          routerLink="/mother/calendar"
+          routerLinkActive="active"
+          (click)="closeSidebarOnMobile()">
+          📆 Calendar
         </a>
-         <a routerLink="/mother/users" routerLinkActive="active">
-      👥 Manage Users
-    </a>
+
+        <a
+          routerLink="/mother/users"
+          routerLinkActive="active"
+          (click)="closeSidebarOnMobile()">
+          👥 Manage Users
+        </a>
+
       </div>
 
     </div>
 
-    
-
-    <a routerLink="/status" routerLinkActive="active">
+    <a
+      routerLink="/status"
+      routerLinkActive="active"
+      (click)="closeSidebarOnMobile()">
       📊 Status
     </a>
 
-    <a routerLink="/import" routerLinkActive="active">
+    <a
+      routerLink="/import"
+      routerLinkActive="active"
+      (click)="closeSidebarOnMobile()">
       📂 Import Excel
     </a>
 
-    <a routerLink="/profile" routerLinkActive="active">
+    <a
+      routerLink="/profile"
+      routerLinkActive="active"
+      (click)="closeSidebarOnMobile()">
       👤 Profile
     </a>
 
   </aside>
 
   <!-- Main Content -->
-  <main class="content" [class.full]="!sidebarOpen">
+  <main
+    class="content"
+    [class.full]="!sidebarOpen"
+    (click)="closeSidebarOnMobile()">
 
     <router-outlet></router-outlet>
 
