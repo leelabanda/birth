@@ -1,51 +1,53 @@
-<div class="header">
+<div class="container">
 
+  <div class="header">
     <button (click)="previousMonth()">◀</button>
 
-    <h2>{{monthName}} {{currentYear}}</h2>
+    <h2>{{ monthName }} {{ currentYear }}</h2>
 
     <button (click)="nextMonth()">▶</button>
+  </div>
 
-</div>
+  <div class="calendar-wrapper">
 
-<div class="weekdays">
-
-    <div *ngFor="let day of weekDays">
-        {{day}}
+    <div class="weekdays">
+      <div *ngFor="let day of weekDays">
+        {{ day }}
+      </div>
     </div>
 
-</div>
+    <div class="calendar">
+      <div
+        class="day"
+        *ngFor="let cell of calendarDays"
+        [class.empty]="!cell.isCurrentMonth"
+        [class.today]="isToday(cell.day)"
+        [class.birthday]="hasBirthday(cell.day)"
+        [class.anniversary]="hasAnniversary(cell.day)"
+        [class.both]="hasBirthday(cell.day) && hasAnniversary(cell.day)"
+      >
 
-<div class="calendar">
+        <ng-container *ngIf="cell.isCurrentMonth">
 
-<div
-  class="day"
-  *ngFor="let cell of calendarDays"
-  [class.empty]="!cell.isCurrentMonth"
-  [class.today]="isToday(cell.day)"
-  [class.birthday]="hasBirthday(cell.day)"
-  [class.anniversary]="hasAnniversary(cell.day)"
-  [class.both]="hasBirthday(cell.day) && hasAnniversary(cell.day)"
->
+          <span class="date">{{ cell.day }}</span>
 
-  <ng-container *ngIf="cell.isCurrentMonth">
+          <div
+            class="birthday-text"
+            *ngFor="let person of getBirthdays(cell.day)">
+            🎂 {{ person.Name }}
+          </div>
 
-    <span class="date">{{cell.day}}</span>
+          <div
+            class="anniversary-text"
+            *ngFor="let person of getAnniversaries(cell.day)">
+            💍 {{ person.Name }}
+          </div>
 
-    <div
-      class="birthday-text"
-      *ngFor="let person of getBirthdays(cell.day)">
-      🎂 {{person.Name}}
+        </ng-container>
+
+      </div>
     </div>
 
-    <div
-      class="anniversary-text"
-      *ngFor="let person of getAnniversaries(cell.day)">
-      💍 {{person.Name}}
-    </div>
-
-  </ng-container>
-
-</div>
+  </div>
 
 </div>
