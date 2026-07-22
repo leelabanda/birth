@@ -7,4 +7,5 @@ export interface Person {
   SubRelation:string;
   City:string;
   Location:string;
+  MobileNumber:string;
 }

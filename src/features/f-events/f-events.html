@@ -14,7 +14,7 @@
 
         <div class="event" *ngFor="let p of birthdayToday">
             <strong>{{ p.Name }}</strong><br>
-            {{ p.Relation }} | {{ p.SubRelation }}
+            {{ p.Relation }} | {{ p.SubRelation }} |{{p.MobileNumber}}
         </div>
     </div>
 
@@ -28,7 +28,7 @@
 
         <div class="event" *ngFor="let p of anniversaryToday">
             <strong>{{ p.Name }}</strong><br>
-            {{ p.Relation }} | {{ p.SubRelation }}
+            {{ p.Relation }} | {{ p.SubRelation }} | {{p.MobileNumber}}
         </div>
     </div>
 

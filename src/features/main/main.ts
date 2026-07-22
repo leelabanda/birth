@@ -90,7 +90,7 @@ DOB: this.excelDateToString(item["DOB"]),
       Location: item["Location"],
       City: item["City"],
       SubRelation: item["SubRelation"],
-      PhoneNumber:item['Contact']
+      MobileNumber:item['Contact']
     }));
 
     console.log(this.people);
@@ -118,23 +118,28 @@ DOB: this.excelDateToString(item["DOB"]),
   }
 excelDateToString(value: any): string {
 
-  if (!value) return '';
-
-  // Excel serial date
-  if (typeof value === 'number') {
-    const parsed = XLSX.SSF.parse_date_code(value);
-
-    const months = [
-      'January', 'February', 'March', 'April',
-      'May', 'June', 'July', 'August',
-      'September', 'October', 'November', 'December'
-    ];
-
-    return `${parsed.d} ${months[parsed.m - 1]}`;
+  if (!value) {
+    return '';
   }
 
-  // Text like "Jan-24"
-  if (typeof value === 'string') {
+  // Excel serial number (real date)
+  if (typeof value === 'number') {
+
+    const parsed = XLSX.SSF.parse_date_code(value);
+
+    return `${parsed.d} ${new Date(parsed.y, parsed.m - 1, parsed.d)
+      .toLocaleString('en-US', { month: 'long' })}`;
+  }
+
+  // If value is already like "24 January"
+  if (typeof value === 'string' && value.includes(' ')) {
+    return value;
+  }
+
+  // Handle "Jan-24"
+  if (typeof value === 'string' && value.includes('-')) {
+
+    const [month, day] = value.split('-');
 
     const months: any = {
       Jan: 'January',
@@ -151,14 +156,7 @@ excelDateToString(value: any): string {
       Dec: 'December'
     };
 
-    const parts = value.split('-');
-
-    if (parts.length === 2) {
-      const month = months[parts[0]];
-      const day = Number(parts[1]);
-
-      return `${day} ${month}`;
-    }
+    return `${Number(day)} ${months[month]}`;
   }
 
   return '';
