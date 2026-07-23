@@ -27,7 +27,16 @@ export class ManageusersM {
     this.cdf.detectChanges();
   }
 
- deleteUser(person: Person) {
+deleteUser(person: Person) {
+
+  const confirmDelete = confirm(
+    `Are you sure you want to delete ${person.Name}?`
+  );
+
+  if (!confirmDelete) {
+    return; // User clicked Cancel
+  }
+
   const index = this.people.findIndex(p =>
     p.Name === person.Name &&
     p.DOB === person.DOB &&
@@ -36,7 +45,12 @@ export class ManageusersM {
 
   if (index !== -1) {
     this.people.splice(index, 1);
-    localStorage.setItem('people', JSON.stringify(this.people));
+
+    localStorage.setItem(
+      'people',
+      JSON.stringify(this.people)
+    );
+
     this.loadUsers();
   }
 }

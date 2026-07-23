@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { Person } from '../../../model/person';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -19,6 +20,7 @@ export class AddF {
     Location:'',
     MobileNumber:''
   };
+  constructor(private router:Router){}
   savePerson(){
     const people:Person[]=JSON.parse(localStorage.getItem('people')||'[]');
     const newPerson: Person = {
@@ -46,6 +48,7 @@ export class AddF {
       Location:'',
       MobileNumber:''
     };
+    this.router.navigate(['/father/users'])
   }
    formatDate(date: string): string {
 
