@@ -44,7 +44,7 @@
 /* ==========================
    Navigation Buttons
 ========================== */
-.nav-btn {
+.nav-btn{
     width: 45px;
     height: 45px;
     border: none;
@@ -64,7 +64,7 @@
 /* ==========================
    Filter
 ========================== */
-.filter-container {
+.filter-containerf {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -72,7 +72,7 @@
     font-weight: bold;
 }
 
-.filter-container select {
+.filter-containerf select {
     padding: 8px 12px;
     border-radius: 6px;
     border: none;
@@ -195,6 +195,13 @@
     word-break: break-word;
 }
 
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    -webkit-text-size-adjust: 100%;
+}
 /* ==========================
    Anniversary Text
 ========================== */

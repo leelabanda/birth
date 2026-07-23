@@ -1,7 +1,7 @@
 <div class="containerf">
 
   <div class="headerf">
-    <button (click)="previousMonth()">◀</button>
+    <button class="nav-btn" (click)="previousMonth()">◀</button>
 
     <h2>{{ monthName }} {{ currentYear }}</h2>
             <div class="filter-containerf">
@@ -13,7 +13,7 @@
                 </option>
             </select>
         </div>
-    <button (click)="nextMonth()">▶</button>
+    <button class="nav-btn" (click)="nextMonth()">▶</button>
   </div>
 
   <div class="calendar-wrapperf">
