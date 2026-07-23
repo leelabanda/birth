@@ -14,6 +14,8 @@ export class ManageuserF {
   people: Person[] = [];
   motherPeople:Person[]=[];
   searchText='';
+  showDeletePopup = false;
+selectedPerson!: Person;
   constructor(private router:Router,private cdf:ChangeDetectorRef
   ){}
   ngOnInit(): void {
@@ -32,22 +34,21 @@ export class ManageuserF {
   }
 
 deleteUser(person: Person) {
+  this.selectedPerson = person;
+  this.showDeletePopup = true;
+}
 
-  const confirmDelete = confirm(
-    `Are you sure you want to delete ${person.Name}?`
-  );
 
-  if (!confirmDelete) {
-    return; // User clicked Cancel
-  }
+confirmDelete() {
 
   const index = this.people.findIndex(p =>
-    p.Name === person.Name &&
-    p.DOB === person.DOB &&
-    p.Relation === person.Relation
+    p.Name === this.selectedPerson.Name &&
+    p.DOB === this.selectedPerson.DOB &&
+    p.Relation === this.selectedPerson.Relation
   );
 
   if (index !== -1) {
+
     this.people.splice(index, 1);
 
     localStorage.setItem(
@@ -57,6 +58,13 @@ deleteUser(person: Person) {
 
     this.loadUsers();
   }
+
+  this.showDeletePopup = false;
+}
+
+
+cancelDelete() {
+  this.showDeletePopup = false;
 }
      editUser(person:Person) {
     const index=this.people.findIndex(p=>p.Name===person.Name && p.DOB===person.DOB && p.Relation===person.Relation);

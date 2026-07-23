@@ -12,6 +12,7 @@
     </div>
   </div>
 
+
   <div class="table-wrapper">
     <table class="user-table">
 
@@ -28,23 +29,28 @@
         </tr>
       </thead>
 
-      <tbody>
-        <tr *ngFor="let person of motherPeople; let i = index">
 
-          <td>{{ i + 1 }}</td>
-          <td>{{ person.Name }}</td>
-          <td>{{ person.Relation }}</td>
-          <td>{{ person.DOB }}</td>
-          <td>{{ person.Anniversary || '-' }}</td>
-          <td>{{ person.City }}</td>
-          <td>{{ person.Location }}</td>
+      <tbody>
+        <tr *ngFor="let person of motherPeople; let i=index">
+
+          <td>{{i+1}}</td>
+          <td>{{person.Name}}</td>
+          <td>{{person.Relation}}</td>
+          <td>{{person.DOB}}</td>
+          <td>{{person.Anniversary || '-'}}</td>
+          <td>{{person.City}}</td>
+          <td>{{person.Location}}</td>
 
           <td>
-            <button class="edit-btn" (click)="editUser(person)">
+            <button 
+              class="edit-btn"
+              (click)="editUser(person)">
               Edit
             </button>
 
-            <button class="delete-btn" (click)="deleteUser(person)">
+            <button 
+              class="delete-btn"
+              (click)="deleteUser(person)">
               Delete
             </button>
           </td>
@@ -54,5 +60,44 @@
 
     </table>
   </div>
+
+
+  <!-- DELETE CONFIRMATION POPUP START -->
+
+  <div class="popup-overlay" *ngIf="showDeletePopup">
+
+    <div class="delete-popup">
+
+      <h3>Confirm Delete</h3>
+
+      <p>
+        Are you sure you want to delete 
+        <b>{{selectedPerson.Name}}</b>?
+      </p>
+
+
+      <div class="popup-buttons">
+
+        <button 
+          class="yes-btn"
+          (click)="confirmDelete()">
+          OK
+        </button>
+
+
+        <button 
+          class="no-btn"
+          (click)="cancelDelete()">
+          Cancel
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- DELETE CONFIRMATION POPUP END -->
+
 
 </div>
