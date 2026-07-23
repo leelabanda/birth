@@ -10,8 +10,6 @@ import { Add } from "./features/motherdashboard/add/add";
 import {ManageusersM } from "./features/manageusers/manageusersm";
 import { AddF } from "./features/fatherdashboard/add/add";
 import { Status } from "./features/status/status";
-import { CalendarF } from "./features/fcalendar/calendar";
-import { CalendarM } from "./features/mcalendar/calendar";
 import { ManageuserF } from "./features/manageuserf/manageuserf";
 import {EditM } from "./features/manageusers/editm/edit";
 import { EditF } from "./features/manageuserf/editf/edit";
@@ -37,12 +35,12 @@ export const routes: Routes = [
 
       { path: 'father/dashboard', component: Fatherdashboard },
        { path: 'father/add', component: AddF },
-      { path: 'father/calendar', component: CalendarF },
+    //  { path: 'father/calendar', component: CalendarF },
       { path: 'father/users', component: ManageuserF },
       { path: 'mother/dashboard', component: Motherdashboard },
      { path: 'mother/add', component: Add },
       { path: 'mother/users', component: ManageusersM },
-     { path: 'mother/calendar', component: CalendarM },
+   //  { path: 'mother/calendar', component: CalendarM },
      {path: 'edit/:id',component: EditM},
      {path: 'editf/:id',component: EditF},
       { path: 'import', component: Main },
