@@ -1,45 +1,78 @@
-/* Main Container */
+/* ===============================
+   MAIN CONTAINER
+================================ */
 
 .containerf {
+
     width: 100%;
-    padding: 20px;
+
+    max-width: 100%;
+
+    padding: 15px;
+
     box-sizing: border-box;
+
+    overflow-x: hidden;
+
 }
 
 
 
-/* Header */
+/* ===============================
+   HEADER
+================================ */
 
 .month-card {
+
+    width: 100%;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
-    gap: 20px;
+
+    gap: 15px;
 
     background: #2563eb;
+
     color: white;
 
     padding: 15px 20px;
+
     border-radius: 12px;
 
     margin-bottom: 20px;
+
+    box-sizing: border-box;
+
 }
+
 
 
 .month-card h2 {
+
     margin: 0;
-    font-size: 26px;
+
     flex: 1;
+
     text-align: center;
+
+    font-size: 24px;
+
 }
 
 
 
-/* Previous / Next Buttons */
+
+/* ===============================
+   BUTTONS
+================================ */
 
 .circle-btn {
 
     width: 40px;
+
     height: 40px;
 
     border-radius: 50%;
@@ -47,6 +80,7 @@
     border: none;
 
     background: white;
+
     color: #2563eb;
 
     font-size: 20px;
@@ -62,13 +96,17 @@
 
     transform: scale(1.1);
 
-    background: #e0e7ff;
+    background: #dbeafe;
 
 }
 
 
 
-/* User Dropdown */
+
+
+/* ===============================
+   USER FILTER
+================================ */
 
 .filter-container {
 
@@ -81,11 +119,13 @@
 }
 
 
+
 .filter-container label {
 
     font-weight: bold;
 
 }
+
 
 
 .filter-container select {
@@ -106,9 +146,15 @@
 
 
 
-/* Calendar Wrapper */
+
+
+/* ===============================
+   CALENDAR BOX
+================================ */
 
 .calendar-wrapperf {
+
+    width: 100%;
 
     background: white;
 
@@ -118,11 +164,19 @@
 
     box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 
+    box-sizing: border-box;
+
+    overflow-x: auto;
+
 }
 
 
 
-/* Week Days */
+
+
+/* ===============================
+   WEEK HEADER
+================================ */
 
 .weekdaysf {
 
@@ -130,9 +184,9 @@
 
     grid-template-columns: repeat(7,1fr);
 
-    gap: 10px;
+    gap: 8px;
 
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 
 }
 
@@ -156,7 +210,11 @@
 
 
 
-/* Calendar Grid */
+
+
+/* ===============================
+   CALENDAR GRID
+================================ */
 
 .calendarf {
 
@@ -164,17 +222,23 @@
 
     grid-template-columns: repeat(7,1fr);
 
-    gap: 10px;
+    gap: 8px;
+
+    width: 100%;
 
 }
 
 
 
-/* Day Box */
+
+
+/* ===============================
+   DAY CELL
+================================ */
 
 .dayf {
 
-    min-height: 110px;
+    min-height: 100px;
 
     border: 1px solid #dbeafe;
 
@@ -184,7 +248,9 @@
 
     background: #ffffff;
 
-    position: relative;
+    box-sizing: border-box;
+
+    overflow: hidden;
 
     transition: 0.3s;
 
@@ -202,7 +268,9 @@
 
 
 
-/* Empty Days */
+
+
+/* Empty cells */
 
 .empty {
 
@@ -214,7 +282,9 @@
 
 
 
-/* Today's Date */
+
+
+/* Today */
 
 .today {
 
@@ -224,7 +294,9 @@
 
 
 
-/* Date Number */
+
+
+/* Date */
 
 .datef {
 
@@ -238,7 +310,11 @@
 
 
 
-/* Birthday Display */
+
+
+/* ===============================
+   EVENTS
+================================ */
 
 .birthday-textf {
 
@@ -256,11 +332,15 @@
 
     font-weight: 600;
 
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
 }
 
 
-
-/* Anniversary Display */
 
 .anniversary-textf {
 
@@ -278,23 +358,29 @@
 
     font-weight: 600;
 
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
 }
 
 
 
-/* Birthday + Anniversary Same Day */
+
+
+/* Birthday + Anniversary same day */
 
 .both {
 
     background: #fef3c7;
 
-    /* border: 2px solid #f59e0b; */
-
 }
 
 
 
-/* Birthday Highlight */
+
 
 .birthday {
 
@@ -304,7 +390,7 @@
 
 
 
-/* Anniversary Highlight */
+
 
 .anniversary {
 
@@ -314,38 +400,47 @@
 
 
 
-/* Responsive Design */
 
-@media(max-width:900px) {
+
+/* ===============================
+   TABLET
+================================ */
+
+@media(max-width:1000px){
 
 
     .month-card {
 
-        flex-direction: column;
+        flex-wrap: wrap;
 
     }
 
 
-    .calendarf {
+    .calendar-wrapperf {
 
-        gap: 5px;
-
-    }
-
-
-    .dayf {
-
-        min-height: 80px;
-
-        font-size: 12px;
+        overflow-x: auto;
 
     }
 
+
+    .calendarf,
+    .weekdaysf {
+
+        min-width: 750px;
+
+    }
 
 }
 
 
-@media(max-width:600px) {
+
+
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media(max-width:600px){
 
 
     .containerf {
@@ -355,27 +450,40 @@
     }
 
 
-    .weekdaysf div {
 
-        font-size: 12px;
+    .month-card {
 
-        padding: 8px;
-
-    }
-
-
-    .datef {
-
-        font-size: 14px;
+        flex-direction: column;
 
     }
 
 
-    .birthday-textf,
-    .anniversary-textf {
 
-        font-size: 10px;
+    .month-card h2 {
+
+        font-size: 20px;
 
     }
+
+
+
+    .filter-container {
+
+        width: 100%;
+
+        justify-content: center;
+
+    }
+
+
+
+    .circle-btn {
+
+        width: 35px;
+
+        height: 35px;
+
+    }
+
 
 }
