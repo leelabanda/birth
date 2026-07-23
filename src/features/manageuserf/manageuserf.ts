@@ -36,6 +36,7 @@ selectedPerson!: Person;
 deleteUser(person: Person) {
   this.selectedPerson = person;
   this.showDeletePopup = true;
+  console.log("Delete clicked", person);
 }
 
 
