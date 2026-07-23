@@ -52,7 +52,7 @@ export class Fatherdashboard {
       const anniversaries=this.convertDate(person.Anniversary);
       return next10Days.includes(`${anniversaries.getDate()}-${anniversaries.getMonth()}`);
     }).sort((a,b)=>{
-      return this.convertDate(a.DOB).getTime()-this.convertDate(b.DOB).getTime();
+      return this.convertDate(a.Anniversary).getTime()-this.convertDate(b.Anniversary).getTime();
     });
 
   }

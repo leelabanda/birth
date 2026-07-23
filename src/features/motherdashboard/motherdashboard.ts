@@ -93,7 +93,7 @@ export class Motherdashboard {
       );
 
     }).sort((a,b)=>{
-      return this.convertDate(a.DOB).getTime()-this.convertDate(b.DOB).getTime();
+      return this.convertDate(a.Anniversary).getTime()-this.convertDate(b.Anniversary).getTime();
     });
 
 
