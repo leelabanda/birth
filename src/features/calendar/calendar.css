@@ -1,0 +1,381 @@
+/* Main Container */
+
+.containerf {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+
+/* Header */
+
+.month-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background: #2563eb;
+    color: white;
+
+    padding: 15px 20px;
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+}
+
+
+.month-card h2 {
+    margin: 0;
+    font-size: 26px;
+    flex: 1;
+    text-align: center;
+}
+
+
+
+/* Previous / Next Buttons */
+
+.circle-btn {
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: white;
+    color: #2563eb;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.circle-btn:hover {
+
+    transform: scale(1.1);
+
+    background: #e0e7ff;
+
+}
+
+
+
+/* User Dropdown */
+
+.filter-container {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+.filter-container label {
+
+    font-weight: bold;
+
+}
+
+
+.filter-container select {
+
+    padding: 8px 15px;
+
+    border-radius: 8px;
+
+    border: none;
+
+    outline: none;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+}
+
+
+
+/* Calendar Wrapper */
+
+.calendar-wrapperf {
+
+    background: white;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+
+}
+
+
+
+/* Week Days */
+
+.weekdaysf {
+
+    display: grid;
+
+    grid-template-columns: repeat(7,1fr);
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.weekdaysf div {
+
+    text-align: center;
+
+    padding: 12px;
+
+    background: #e2e8f0;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    color: #334155;
+
+}
+
+
+
+/* Calendar Grid */
+
+.calendarf {
+
+    display: grid;
+
+    grid-template-columns: repeat(7,1fr);
+
+    gap: 10px;
+
+}
+
+
+
+/* Day Box */
+
+.dayf {
+
+    min-height: 110px;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 10px;
+
+    padding: 8px;
+
+    background: #ffffff;
+
+    position: relative;
+
+    transition: 0.3s;
+
+}
+
+
+
+.dayf:hover {
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/* Empty Days */
+
+.empty {
+
+    background: #f8fafc;
+
+    border: none;
+
+}
+
+
+
+/* Today's Date */
+
+.today {
+
+    border: 3px solid #2563eb;
+
+}
+
+
+
+/* Date Number */
+
+.datef {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #1e293b;
+
+}
+
+
+
+/* Birthday Display */
+
+.birthday-textf {
+
+    margin-top: 8px;
+
+    padding: 5px;
+
+    border-radius: 6px;
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+
+/* Anniversary Display */
+
+.anniversary-textf {
+
+    margin-top: 5px;
+
+    padding: 5px;
+
+    border-radius: 6px;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+
+/* Birthday + Anniversary Same Day */
+
+.both {
+
+    background: #fef3c7;
+
+    /* border: 2px solid #f59e0b; */
+
+}
+
+
+
+/* Birthday Highlight */
+
+.birthday {
+
+    background: #fff7f7;
+
+}
+
+
+
+/* Anniversary Highlight */
+
+.anniversary {
+
+    background: #f0fdf4;
+
+}
+
+
+
+/* Responsive Design */
+
+@media(max-width:900px) {
+
+
+    .month-card {
+
+        flex-direction: column;
+
+    }
+
+
+    .calendarf {
+
+        gap: 5px;
+
+    }
+
+
+    .dayf {
+
+        min-height: 80px;
+
+        font-size: 12px;
+
+    }
+
+
+}
+
+
+@media(max-width:600px) {
+
+
+    .containerf {
+
+        padding: 10px;
+
+    }
+
+
+    .weekdaysf div {
+
+        font-size: 12px;
+
+        padding: 8px;
+
+    }
+
+
+    .datef {
+
+        font-size: 14px;
+
+    }
+
+
+    .birthday-textf,
+    .anniversary-textf {
+
+        font-size: 10px;
+
+    }
+
+}

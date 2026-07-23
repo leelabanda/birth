@@ -14,6 +14,7 @@ import { ManageuserF } from "./features/manageuserf/manageuserf";
 import {EditM } from "./features/manageusers/editm/edit";
 import { EditF } from "./features/manageuserf/editf/edit";
 import { Profile } from "./features/profile/profile";
+import { Calendar } from "./features/calendar/calendar";
 
 export const routes: Routes = [
 
@@ -46,7 +47,7 @@ export const routes: Routes = [
       { path: 'import', component: Main },
       {path:'father/events',component:FEvents},
       {path:'mother/events',component:MEvents},
-    
+      {path:'calendar',component:Calendar},
        { path: 'status', component: Status },
       { path: 'profile', component: Profile }
 

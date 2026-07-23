@@ -1,0 +1,74 @@
+<div class="containerf">
+
+    <div class="month-card">
+
+        <h2>{{ monthName }} {{ currentYear }}</h2>
+
+        <button class="circle-btn" (click)="previousMonth()">
+            &#9664;
+        </button>
+
+        <div class="filter-container">
+            <label>User:</label>
+
+            <select [(ngModel)]="selectedUser">
+                <option *ngFor="let user of users" [value]="user">
+                    {{ user }}
+                </option>
+            </select>
+        </div>
+
+        <button class="circle-btn" (click)="nextMonth()">
+            &#9654;
+        </button>
+
+    </div>
+
+    <div class="calendar-wrapperf">
+
+        <!-- Week Days -->
+
+        <div class="weekdaysf">
+            <div *ngFor="let day of weekDays">
+                {{ day }}
+            </div>
+        </div>
+
+        <!-- Calendar -->
+
+        <div class="calendarf">
+
+            <div
+                class="dayf"
+                *ngFor="let cell of calendarDays"
+                [class.empty]="!cell.isCurrentMonth"
+                [class.today]="isToday(cell.day)"
+                [class.birthday]="hasBirthday(cell.day)"
+                [class.anniversary]="hasAnniversary(cell.day)"
+                [class.both]="hasBirthday(cell.day) && hasAnniversary(cell.day)">
+
+                <ng-container *ngIf="cell.isCurrentMonth">
+
+                    <span class="datef">{{cell.day}}</span>
+
+                    <div
+                        class="birthday-textf"
+                        *ngFor="let person of getBirthdays(cell.day)">
+                        🎂 {{person.Name}}
+                    </div>
+
+                    <div
+                        class="anniversary-textf"
+                        *ngFor="let person of getAnniversaries(cell.day)">
+                        💍 {{person.Name}}
+                    </div>
+
+                </ng-container>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
