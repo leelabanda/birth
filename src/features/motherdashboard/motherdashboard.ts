@@ -29,105 +29,105 @@ export class Motherdashboard {
   }
 
 
-  loadUpcommingEvents() {
+  loadUpcommingEvents(){
+
     const today = new Date();
-    today.setHours(0, 0, 0, 0);
 
-    const getTargetDate = (dateStr: string): Date | null => {
-      if (!dateStr) return null;
-      const eventDate = this.convertDate(dateStr);
-      
-      // Roll over to next year if the event date already passed this year
-      if (eventDate.getTime() < today.getTime()) {
-        eventDate.setFullYear(today.getFullYear() + 1);
-      }
-      return eventDate;
-    };
+    const next10Days:string[] = [];
 
-    const maxDaysAhead = 10;
 
-    // --- Process Birthdays ---
-    this.upCommingBirthdays = this.people.filter(person => {
-      if (person.Relation !== 'M-Friend' && person.Relation !== 'Relation') {
+    for(let i=1; i<=10; i++){
+
+      const d = new Date(today);
+
+      d.setDate(today.getDate()+i);
+
+      next10Days.push(`${d.getDate()}-${d.getMonth()}`);
+    }
+
+
+
+    this.upCommingBirthdays = this.people.filter(person=>{
+
+      if(person.Relation !== 'M-Friend' && person.Relation !== 'Relation'){
         return false;
       }
-      const targetDate = getTargetDate(person.DOB);
-      if (!targetDate) return false;
 
-      const diffTime = targetDate.getTime() - today.getTime();
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-      return diffDays >= 0 && diffDays <= maxDaysAhead;
-    }).sort((a, b) => {
-      const dateA = getTargetDate(a.DOB)!.getTime();
-      const dateB = getTargetDate(b.DOB)!.getTime();
-      return dateA - dateB;
-    });
-
-    // --- Process Anniversaries ---
-    this.upCommingAnniversaries = this.people.filter(person => {
-      if (person.Relation !== 'M-Friend' && person.Relation !== 'Relation') {
+      if(!person.DOB){
         return false;
       }
-      const targetDate = getTargetDate(person.Anniversary);
-      if (!targetDate) return false;
 
-      const diffTime = targetDate.getTime() - today.getTime();
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-      return diffDays >= 0 && diffDays <= maxDaysAhead;
-    }).sort((a, b) => {
-      const dateA = getTargetDate(a.Anniversary)!.getTime();
-      const dateB = getTargetDate(b.Anniversary)!.getTime();
-      return dateA - dateB;
+      const dob = this.convertDate(person.DOB);
+
+
+      return next10Days.includes(
+        `${dob.getDate()}-${dob.getMonth()}`
+      );
+
+    }).sort((a,b)=>{
+      return this.convertDate(a.DOB).getTime()-this.convertDate(b.DOB).getTime();
     });
+
+
+
+    this.upCommingAnniversaries = this.people.filter(person=>{
+
+
+      if(person.Relation !== 'M-Friend' && person.Relation !== 'Relation'){
+        return false;
+      }
+
+
+      if(!person.Anniversary){
+        return false;
+      }
+
+
+      const anniversary = this.convertDate(person.Anniversary);
+
+
+      return next10Days.includes(
+        `${anniversary.getDate()}-${anniversary.getMonth()}`
+      );
+
+    }).sort((a,b)=>{
+      return this.convertDate(a.Anniversary).getTime()-this.convertDate(b.Anniversary).getTime();
+    });
+
+
   }
 
-  convertDate(value: string): Date {
+
+
+  convertDate(value:string):Date{
+
     const months = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December'
     ];
 
-    const [day, month] = value.trim().split(' ');
-    
-    const d = new Date(
+
+    const [day, month] = value.split(' ');
+
+
+    return new Date(
       new Date().getFullYear(),
       months.indexOf(month),
       Number(day)
     );
-    d.setHours(0, 0, 0, 0);
-    return d;
+
   }
-
-
-  // convertDate(value:string):Date{
-
-  //   const months = [
-  //     'January',
-  //     'February',
-  //     'March',
-  //     'April',
-  //     'May',
-  //     'June',
-  //     'July',
-  //     'August',
-  //     'September',
-  //     'October',
-  //     'November',
-  //     'December'
-  //   ];
-
-
-  //   const [day, month] = value.split(' ');
-
-
-  //   return new Date(
-  //     new Date().getFullYear(),
-  //     months.indexOf(month),
-  //     Number(day)
-  //   );
-
-  // }
 
 }
